@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Status</title>
+    <title>Payment Response</title>
 </head>
 <body>
-    <h2>Payment Status</h2>
-    <p id="statusMessage"></p>
-    
+    <h2>Payment Response</h2>
+    <p>Thank you for your payment.</p>
+
     <script>
-        // You would parse the query parameters to check the payment status
+        // Example of extracting query parameters
         const urlParams = new URLSearchParams(window.location.search);
-        const status = urlParams.get('status');
-        const message = status === 'success' ? 'Payment Successful!' : 'Payment Failed!';
-        document.getElementById('statusMessage').textContent = message;
+        const status = urlParams.get('status'); // Example parameter
+
+        if (status === 'success') {
+            document.body.innerHTML += '<p>Your payment was successful!</p>';
+        } else if (status === 'failure') {
+            document.body.innerHTML += '<p>There was an issue with your payment. Please try again.</p>';
+        } else {
+            document.body.innerHTML += '<p>Payment response not received.</p>';
+        }
     </script>
 </body>
 </html>
