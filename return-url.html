@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Status</title>
+</head>
+<body>
+    <h2>Payment Status</h2>
+    <p id="statusMessage"></p>
+    
+    <script>
+        // You would parse the query parameters to check the payment status
+        const urlParams = new URLSearchParams(window.location.search);
+        const status = urlParams.get('status');
+        const message = status === 'success' ? 'Payment Successful!' : 'Payment Failed!';
+        document.getElementById('statusMessage').textContent = message;
+    </script>
+</body>
+</html>
